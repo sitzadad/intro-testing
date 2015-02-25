@@ -50,7 +50,11 @@ function expect(expectation) {
 // Write Constructors HERE
 function Human(spec) {
   var spec = spec || {};
-  this.isCool = spec.isCool||true;
+  if(spec.isCool === undefined){
+    this.isCool = true;
+  }else{
+    this.isCool = spec.isCool;
+  }
   this.mood = spec.mood;
   this.pet = function(petted){
     this.mood = 'happy';
